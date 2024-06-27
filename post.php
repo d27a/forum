@@ -44,7 +44,7 @@ $_SESSION['token'] = $token;
 <!-- ★ログアウト★ -->
 <header>
 <div class="head">
-<h1>週末プラン投稿画面</h1>
+<h1>ひとこと掲示板</h1>
 <span class="logout"><a href="login.php">ログアウト</a></span>
 
 </div>
