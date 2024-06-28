@@ -1,16 +1,16 @@
 <?php
 session_start();
 require('dbconnect.php');
-// ★ポイント1★
+// 理解度の説明
 if (!empty($_POST) ){
-	// ★ポイント2★
+	// 理解度の説明
     if ($_POST['name'] == "") {
         $error['name'] = 'blank';
     }
     if ($_POST['email'] == "") {
         $error['email'] = 'blank';
     } else {
-		// ★ポイント3★
+		// 理解度の説明
 		$member = $db->prepare('SELECT COUNT(*) AS cnt FROM members WHERE email=?');
 		$member->execute(array($_POST['email']));
 		$record = $member->fetch();
@@ -24,23 +24,23 @@ if (!empty($_POST) ){
     if ($_POST['password2'] == "") {
         $error['password2'] = 'blank';
     }
-	// ★ポイント4★
+	// 理解度の説明
     if (strlen($_POST['password'])< 6) {
         $error['password'] = 'length';
     }
-	// ★ポイント5★
+	// 理解度の説明
     if (($_POST['password'] != $_POST['password2']) && ($_POST['password2'] != "")) {
         $error['password2'] = 'difference';
     }
 
-    // 追加：送信後の処理（次回解説します）
+    // 送信後の処理
     if (empty($error)) {
         $_SESSION['join'] = $_POST;
         header('Location: confirm.php');
         exit();
     }
     
-    // 追加：セッションに保存しておいたPOSTデータを取り出す
+    // セッションに保存しておいたPOSTデータを取り出す
     if (isset($_SESSION['join']) && isset($_REQUEST['action']) && ($_REQUEST['action'] == 'rewrite')) {
         $_POST =$_SESSION['join'];
     }

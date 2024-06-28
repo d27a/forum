@@ -1,8 +1,9 @@
 <?php
+// 理解度の説明
 session_start();
 require('dbconnect.php');
 
-// ★ポイント1★
+// 理解度の説明
 if (isset($_SESSION['id']) && ($_SESSION['time'] + 3600 > time())) {
     $_SESSION['time'] = time();
 
@@ -13,7 +14,7 @@ if (isset($_SESSION['id']) && ($_SESSION['time'] + 3600 > time())) {
     header('Location: login.php');
     exit();
 }
-// ★ポイント2★
+// 理解度の説明
 if (!empty($_POST)) {
     if (isset($_POST['token']) && $_POST['token'] === $_SESSION['token']) {
         $post=$db->prepare('INSERT INTO posts SET created_by=?, post=?, created=NOW()');
@@ -26,7 +27,7 @@ if (!empty($_POST)) {
     }
 }
 
-// ★ポイント3★
+// 理解度の説明
 $posts=$db->query('SELECT m.name, p.* FROM members m  JOIN posts p ON m.id=p.created_by ORDER BY p.created DESC');
 
 
@@ -41,7 +42,7 @@ $_SESSION['token'] = $token;
 <html lang="ja">
 
 <body>
-<!-- ★ログアウト★ -->
+<!-- ログアウト　理解度の説明 -->
 <header>
 <div class="head">
 <h1>ひとこと掲示板</h1>
@@ -72,7 +73,7 @@ $_SESSION['token'] = $token;
 		<?php echo htmlspecialchars($post['name'], ENT_QUOTES); ?> | 
 		<?php echo htmlspecialchars($post['created'], ENT_QUOTES); ?> | 
 
-        <!-- ★追加：削除★ -->
+        <!-- 削除 理解度の説明 -->
         <?php if($_SESSION['id'] == $post['created_by']): ?>
 		[<a href="delete.php?id=<?php echo htmlspecialchars($post['id'], ENT_QUOTES); ?>">削除</a>]
 		<?php endif; ?>
