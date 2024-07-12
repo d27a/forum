@@ -2,7 +2,7 @@
 session_start();
 require('dbconnect.php');
 
-// 理解度の説明
+// 理解度の説明 
 if (!empty($_POST)) {
     if (($_POST['email'] != '') && ($_POST['password'] != '')) {
         $login = $db->prepare('SELECT * FROM members WHERE email=?');
