@@ -1,7 +1,7 @@
 <?php
 session_start();
 require('dbconnect.php');
-// 理解度の説明
+// 理解度の説明 
 if (!empty($_POST) ){
 	// 理解度の説明
     if ($_POST['name'] == "") {
