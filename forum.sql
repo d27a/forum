@@ -5,7 +5,7 @@
 -- ホスト: 127.0.0.1
 -- 生成日時: 2024-06-27 10:14:17
 -- サーバのバージョン： 10.4.32-MariaDB
--- PHP のバージョン: 8.2.12
+-- PHP のバージョン: 8.2.12 
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
