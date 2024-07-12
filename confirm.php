@@ -6,7 +6,7 @@ if (!isset($_SESSION['join'])) {
     header ('Location: register.php');
     exit();
 }
-// 理解度の説明
+// 理解度の説明 
 $hash = password_hash($_SESSION['join']['password'], PASSWORD_BCRYPT);
 // 理解度の説明
 if (!empty($_POST)) {
