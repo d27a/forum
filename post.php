@@ -1,5 +1,5 @@
 <?php
-// 理解度の説明
+// 理解度の説明 
 session_start();
 require('dbconnect.php');
 
